@@ -1,0 +1,40 @@
+[project]
+name = "robustness_informed"
+version = "0.1.0"
+description = "Add a short description here"
+authors = ["Carlos Loucera <carlos.loucera@juntadeandalucia.es>"]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[system-requirements]
+cuda = "12"
+
+[tasks]
+isgpu="pixi run python -c 'import tensorflow as tf; print(tf.test.is_gpu_available())' "
+
+[dependencies]
+tensorflow-gpu = "2.10.*"
+black = ">=24.8.0,<24.9"
+leidenalg = ">=0.9.1,<0.10"
+scanpy = "1.9.*"
+jupyterlab = "<1.10"
+autoflake = ">=1.7.5,<1.8"
+black-jupyter = ">=24.8.0,<24.9"
+isort = ">=5.13.2,<5.14"
+scipy = "1.10.1.*"
+numpy = "<2"
+pylint = ">=3.2.7,<3.3"
+scikit-misc = ">=0.1.4,<0.2"
+nbqa = ">=1.9.0,<1.10"
+graphviz = ">=7.1.0,<7.2"
+pydot = ">=3.0.1,<3.1"
+papermill = ">=2.6.0,<2.7"
+seaborn = ">=0.13.2,<0.14"
+python-igraph = ">=0.10.3,<0.11"
+scikit-learn = ">=1.5.1,<1.6"
+pandas = ">=2.2.2,<2.3"
+python = "3.10.*"
+
+[pypi-dependencies]
+ivae_scorer = {git = "https://github.com/babelomics/ivae_scorer.git", branch="develop"}
+isrobust = {path = ".", editable = true}
