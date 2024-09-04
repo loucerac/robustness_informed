@@ -80,17 +80,6 @@ def build_pathway_adj_from_circuit_adj(circuit_adj):
     return adj
 
 
-def build_pathway_adj_from_circuit_adj(circuit_adj):
-    tmp_adj = circuit_adj.T
-    tmp_adj.index.name = "circuit"
-    tmp_adj = tmp_adj.reset_index()
-    tmp_adj["pathway"] = tmp_adj.circuit.str.split("-").str[1]
-    tmp_adj = tmp_adj.drop("circuit", axis=1)
-    adj = 1 * tmp_adj.groupby("pathway").any()
-
-    return adj
-
-
 def build_circuit_pathway_adj(circuit_adj, pathway_adj):
     return (1 * (pathway_adj.dot(circuit_adj) > 0)).T
 
