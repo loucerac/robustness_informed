@@ -10,7 +10,7 @@ platforms = ["linux-64"]
 cuda = "12"
 
 [tasks]
-isgpu="pixi run python -c 'import tensorflow as tf; print(tf.test.is_gpu_available())' "
+isgpu="pixi run python -c 'import tensorflow as tf; print(tf.test.is_gpu_available())'"
 
 [dependencies]
 tensorflow-gpu = "2.10.*"

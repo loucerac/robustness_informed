@@ -20,12 +20,9 @@ install-ivae:
 # 	pip install -e .
 
 format: install-ivae
-	pixi run autoflake -r --in-place --remove-unused-variables --remove-all-unused-imports isrobust
-	pixi run autoflake -r --in-place --remove-unused-variables --remove-all-unused-imports notebooks
-	pixi run nbqa autoflake -r --in-place --remove-unused-variables --remove-all-unused-imports notebooks
-	pixi run nbqa isort --profile black isrobust notebooks
-	pixi run isort --profile black isrobust notebooks
-	pixi run black isrobust notebooks
+	pixi run ruff check . --fix
+	pixi run ruff check --select I --fix .
+	pixi run ruff format .
 
 run-kegg: install-ivae format
 	rm -rf results/ivae_kegg
