@@ -274,6 +274,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/rfc3986-validator-0.1.1-pyh9f0ad1d_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/rpds-py-0.20.0-py310h505e2c1_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/rsa-4.9-pyhd8ed1ab_0.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/ruff-0.6.2-py310hed47299_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/scanpy-1.9.8-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/scikit-learn-1.5.1-py310h146d792_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/scikit-misc-0.1.4-py310h3254323_4.tar.bz2
@@ -5452,6 +5453,28 @@ packages:
   - pkg:pypi/rsa?source=conda-forge-mapping
   size: 29863
   timestamp: 1658329024970
+- kind: conda
+  name: ruff
+  version: 0.6.2
+  build: py310hed47299_0
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/ruff-0.6.2-py310hed47299_0.conda
+  sha256: 43e4499c7e04f035261d29979c779923fe6997c95fcd66f45e0ae93050ff01fd
+  md5: 1b4712c4b5a825057a0cde7cd4b29a27
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc-ng >=13
+  - libstdcxx-ng >=13
+  - python >=3.10,<3.11.0a0
+  - python_abi 3.10.* *_cp310
+  constrains:
+  - __glibc >=2.17
+  license: MIT
+  license_family: MIT
+  purls:
+  - pkg:pypi/ruff?source=conda-forge-mapping
+  size: 7244813
+  timestamp: 1724399677233
 - kind: conda
   name: scanpy
   version: 1.9.8

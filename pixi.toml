@@ -34,6 +34,7 @@ python-igraph = ">=0.10.3,<0.11"
 scikit-learn = ">=1.5.1,<1.6"
 pandas = ">=2.2.2,<2.3"
 python = "3.10.*"
+ruff = ">=0.6.2,<0.7"
 
 [pypi-dependencies]
 ivae_scorer = {git = "https://github.com/babelomics/ivae_scorer.git", branch="develop"}
