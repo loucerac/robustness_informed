@@ -12,12 +12,6 @@ all: | install-ivae format run-kegg  run-reactome  run-random  run-scoring-kegg 
 
 install-ivae:
 	pixi install
-# install-binn:
-# 	rm -rf ${BINN_ENV_FOLDER}
-# 	mamba env create -p ${BINN_ENV_FOLDER} -f environment-binn.yml
-# 	$(CONDA_ACTIVATE) ${BINN_ENV_FOLDER}
-# 	pip install mygene binn==0.0.3 --extra-index-url https://download.pytorch.org/whl/cu118
-# 	pip install -e .
 
 format: install-ivae
 	pixi run ruff check . --fix
