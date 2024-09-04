@@ -2288,7 +2288,7 @@ packages:
   name: isrobust
   version: 1.0.0
   path: .
-  sha256: d5e493e5d4fafceee6af66bef1fa3c6a7b97fc2bae9bff22c729100c0ddd0f3b
+  sha256: a4102f0dbcada3affaa548e85d359545b5c0b155db4bacddf503a95afec8addd
   editable: true
 - kind: pypi
   name: ivae-scorer
