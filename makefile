@@ -8,7 +8,7 @@ FRACS=$$(LANG=en_US seq ${FRAC_START} ${FRAC_STEP} ${FRAC_STOP})
 SEEDS=$$(LANG=en_US seq ${SEED_START} ${SEED_STEP} ${SEED_STOP})
 PY_FILES := isrobust/*.py
 
-all: install-ivae format run-kegg .WAIT run-reactome .WAIT run-random .WAIT run-scoring-kegg .WAIT run-scoring-reactome .WAIT run-scoring-random
+all: | install-ivae format run-kegg  run-reactome  run-random  run-scoring-kegg  run-scoring-reactome  run-scoring-random
 
 install-ivae:
 	pixi install
@@ -58,24 +58,22 @@ run-random: install-ivae format
 
 run-scoring-kegg: run-kegg
 
-	pixi run papermill notebooks/01-compute_scores.ipynb \
-		-p model_kind ivae_kegg -p debug 0 \
+	pixi run papermill notebooks/01-compute_scores.ipynb - \
+		-p model_kind ivae_kegg \
 		> results/ivae_kegg/logs/scoring.out \
 		2> results/ivae_kegg/logs/scoring.err
 
 run-scoring-reactome: run-reactome
 
-	pixi run papermill notebooks/01-compute_scores.ipynb \
-		-p model_kind ivae_reactome -p debug 0 \
+	pixi run papermill notebooks/01-compute_scores.ipynb - \
+		-p model_kind ivae_reactome \
 		> results/ivae_reactome/logs/scoring.out \
 		2> results/ivae_reactome/logs/scoring.err
 
-run-scoring-random: run-random
-	
-	pixi run parallel -j${N_CPU} \
-		papermill \
-		-p model_kind ivae_random-{} -p debug 0 -p frac {} \
-		notebooks/01-compute_scores.ipynb - \
+run-scoring-random:
+	parallel -j${N_CPU} \
+		pixi run papermill notebooks/01-compute_scores.ipynb - \
+		-p model_kind ivae_random-{} -p frac {} \
 		">" results/ivae_random-{}/logs/scoring.out \
 		"2>" results/ivae_random-{}/logs/scoring.err \
 		::: $(FRACS)
