@@ -47,14 +47,8 @@ seed = int(seed)
 print(model_kind, debug, seed)
 
 project_path = Path(dotenv.find_dotenv()).parent
-results_path = project_path.joinpath("results")
-results_path.mkdir(exist_ok=True, parents=True)
 data_path = project_path.joinpath("data")
 data_path.mkdir(exist_ok=True, parents=True)
-figs_path = results_path.joinpath("figs")
-figs_path.mkdir(exist_ok=True, parents=True)
-tables_path = results_path.joinpath("tables")
-tables_path.mkdir(exist_ok=True, parents=True)
 
 set_all_seeds(seed=42)
 
@@ -63,6 +57,16 @@ tf.config.experimental.enable_op_determinism()
 sc.set_figure_params(dpi=300, color_map="inferno")
 sc.settings.verbosity = 1
 sc.logging.print_header()
+
+config = dotenv.dotenv_values()
+debug = bool(int(config["DEBUG"]))
+
+results_path = Path(config["RESULTS_FOLDER"])
+results_path.mkdir(exist_ok=True, parents=True)
+figs_path = results_path.joinpath("figs")
+figs_path.mkdir(exist_ok=True, parents=True)
+tables_path = results_path.joinpath("tables")
+tables_path.mkdir(exist_ok=True, parents=True)
 
 # %%
 if debug:
