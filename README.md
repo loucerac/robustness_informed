@@ -21,6 +21,7 @@ SEED_START=0
 SEED_STOP=99
 SEED_STEP=1
 DEBUG=0
+RESULTS_FOLDER=${HOME}/mnt/output/robustness_informed
 ```
 
 It was run using:
