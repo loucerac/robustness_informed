@@ -3,7 +3,7 @@
 
 ## setup
 
-Install `miniforge`
+Install `pixi`: https://pixi.sh/latest/
 
 ## Experiment
 
@@ -26,7 +26,5 @@ RESULTS_FOLDER=${HOME}/mnt/output/robustness_informed
 
 It was run using:
 ```
-screen -dmS ivae
-make
-(reattach)
+screen -d -m make
 ```
