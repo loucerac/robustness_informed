@@ -14,7 +14,6 @@ import numpy as np
 import pandas as pd
 import scanpy as sc
 import tensorflow as tf
-from ivae_scorer.models import build_kegg_vae, build_reactome_vae
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import minmax_scale
 from tensorflow.keras import callbacks
@@ -28,6 +27,7 @@ from isrobust.bio import (
     sync_gexp_adj,
 )
 from isrobust.datasets import load_kang
+from isrobust.models import build_kegg_vae, build_reactome_vae
 from isrobust.utils import set_all_seeds
 
 args = sys.argv
