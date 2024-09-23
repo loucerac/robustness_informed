@@ -28,3 +28,20 @@ It was run using:
 ```
 screen -d -m make
 ```
+
+## Debug
+
+```
+IVAE_ENV_FOLDER=./.venvs/ivae
+BINN_ENV_FOLDER=./.venvs/binn
+N_GPU=3
+N_CPU=30
+FRAC_START=0.05
+FRAC_STOP=0.15
+FRAC_STEP=0.05
+SEED_START=0
+SEED_STOP=10
+SEED_STEP=1
+DEBUG=1
+RESULTS_FOLDER=./results/robustness_informed
+```
